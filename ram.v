@@ -1,5 +1,2 @@
-module RAM_INIT();
-  task ram;
-  // stuff
-  endtask;
+module ram();
 endmodule;
