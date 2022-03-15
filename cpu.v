@@ -4,6 +4,7 @@
 `include "mar/mar.v"
 `include "ram/ram.v"
 `include "pc/program_counter.v"
+`include "mux/mux2_4.v"
 module cpu(
     input clk,
     input rst,
@@ -22,6 +23,7 @@ module cpu(
   wire [7:0] unbuffered_out;
 
   wire [3:0] mar_address;
+  wire [3:0] ram_address;
   wire [3:0] opcode;
 
   wire [3:0] flags;
@@ -47,22 +49,29 @@ module cpu(
   assign instr_in = instr_load; // TESTING: DELETE
   assign instr_out = address_send; // TESTING: DELETE
 
+  mux2_4 mx24(
+      .address_1(mar_address),
+      .address_2(pr_address),
+      .select(pr_mode),
+      .address_out(ram_address)
+    );
+
   program_counter pc(
-    .debug(debug),
-    .out_en(pc_out),
-    .rst(rst),
-    .inc(pc_inc),
-    .cnt(bus)
+      .debug(debug),
+      .out_en(pc_out),
+      .rst(rst),
+      .inc(pc_inc),
+      .cnt(bus)
     );
 
   ram r(
-    .debug(debug),
-    .prg_mode(pr_mode),
-    .prg_data(pr_data),
-    .address(mar_address),
-    .wr_en(ram_in),
-    .re_en(ram_out),
-    .bus(bus)
+      .debug(debug),
+      .prg_mode(pr_mode),
+      .prg_data(pr_data),
+      .address(ram_address),
+      .wr_en(ram_in),
+      .re_en(ram_out),
+      .bus(bus)
     );
 
   instruction_register ir(
@@ -76,41 +85,41 @@ module cpu(
     );
 
   mar mar_(
-    .debug(debug),
-    .rst(rst),
-    .address_in(bus[3:0]),
-    .enable_in(mar_in),
-    .address_out(mar_address)
+      .debug(debug),
+      .rst(rst),
+      .address_in(bus[3:0]),
+      .enable_in(mar_in),
+      .address_out(mar_address)
     );
 
   register reg_a(
-    .debug(debug),
-    .rst(rst),
-    .data_load(reg_a_in),
-    .data_send(reg_a_out),
-    .bus(bus),
-    .bus_out(bus_out),
-    .unbuffered_out(unbuffered_out)
+      .debug(debug),
+      .rst(rst),
+      .data_load(reg_a_in),
+      .data_send(reg_a_out),
+      .bus(bus),
+      .bus_out(bus_out),
+      .unbuffered_out(unbuffered_out)
     );
 
   register reg_b(
-    .debug(debug),
-    .rst(rst),
-    .data_load(reg_b_in),
-    .data_send(reg_b_out),
-    .bus(bus),
-    .bus_out(bus_out),
-    .unbuffered_out(unbuffered_out)
+      .debug(debug),
+      .rst(rst),
+      .data_load(reg_b_in),
+      .data_send(reg_b_out),
+      .bus(bus),
+      .bus_out(bus_out),
+      .unbuffered_out(unbuffered_out)
     );
 
   register reg_out(
-    .debug(debug),
-    .rst(rst),
-    .data_load(reg_out_in),
-    .data_send(reg_b_out),
-    .bus(bus),
-    .bus_out(bus_out),
-    .unbuffered_out(unbuffered_out)
+      .debug(debug),
+      .rst(rst),
+      .data_load(reg_out_in),
+      .data_send(reg_b_out),
+      .bus(bus),
+      .bus_out(bus_out),
+      .unbuffered_out(unbuffered_out)
     );
 
   controller c(

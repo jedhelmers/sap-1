@@ -70,9 +70,9 @@ module cpu_tb;
     $dumpvars(0, cpu_tb);
 
     for(integer i = 0; i < 12; i = i + 1) begin
-      instr_load <= (i % 2 == 0);
-      opcode = i;
-      address_send <= !(i % 2 == 0);
+      instr_load <= (i % 2 == 0); #1;
+      opcode = i; #1;
+      address_send <= !(i % 2 == 0); #1
       _bus = i * 10; #20;
     end
 
