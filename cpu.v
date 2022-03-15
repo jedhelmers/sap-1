@@ -1,12 +1,15 @@
 `include "register/register.v"
 `include "control/control.v"
+`include "instruction_register/instruction_register.v"
 `include "mar/mar.v"
 module cpu(
     input clk,
     input rst,
     input pr_mode,
     input [3:0] pr_address,
-    input [7:0] pr_data
+    input [7:0] pr_data,
+    input instr_load,
+    input address_send
   );
   wire debug = 1;
   wire rst = 0;
@@ -38,6 +41,19 @@ module cpu(
   wire pc_jmp;
   wire [3:0] reg_flags_in;
   wire [3:0] step_out;
+
+  assign instr_in = instr_load; // TESTING: DELETE
+  assign instr_out = address_send; // TESTING: DELETE
+
+  instruction_register ir(
+      .debug(debug),
+      .rst(rst),
+      .instr_load_in(instr_in),
+      .instr_send_in(instr_out),
+      .bus_in(bus),
+      .opcode(opcode),
+      .address_out(bus[3:0])
+    );
 
   mar mar_(
     .debug(debug),

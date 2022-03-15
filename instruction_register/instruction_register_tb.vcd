@@ -1,0 +1,261 @@
+$date
+	Sun Mar 13 22:17:25 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module instruction_register_tb $end
+$var wire 4 ! opcode [3:0] $end
+$var wire 4 " address_out [3:0] $end
+$var reg 8 # bus_in [7:0] $end
+$var reg 1 $ clk $end
+$var reg 1 % debug $end
+$var reg 1 & instr_load_in $end
+$var reg 1 ' instr_send_in $end
+$var reg 1 ( rst $end
+$scope module ir $end
+$var wire 8 ) bus_in [7:0] $end
+$var wire 1 % debug $end
+$var wire 1 & instr_load_in $end
+$var wire 1 ' instr_send_in $end
+$var wire 4 * opcode [3:0] $end
+$var wire 1 ( rst $end
+$var wire 4 + address_out [3:0] $end
+$var reg 4 , high [3:0] $end
+$var reg 4 - low [3:0] $end
+$upscope $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 . i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 .
+b0 -
+b0 ,
+bx +
+b0 *
+b0 )
+0(
+x'
+x&
+1%
+0$
+b0 #
+bx "
+b0 !
+$end
+#5
+1$
+#10
+0$
+#15
+1$
+#20
+b0 -
+bz "
+bz +
+0$
+b1010 #
+b1010 )
+b1 .
+1(
+0'
+1&
+#25
+1$
+#30
+0$
+#35
+1$
+#40
+b100 -
+b1 !
+b1 *
+b1 ,
+b100 "
+b100 +
+0$
+b10100 #
+b10100 )
+b10 .
+0(
+1'
+0&
+#45
+1$
+#50
+0$
+#55
+1$
+#60
+b1110 -
+bz "
+bz +
+0$
+b11110 #
+b11110 )
+b11 .
+0'
+1&
+#65
+1$
+#70
+0$
+#75
+1$
+#80
+b1000 -
+b10 !
+b10 *
+b10 ,
+b1000 "
+b1000 +
+0$
+b101000 #
+b101000 )
+b100 .
+1'
+0&
+#85
+1$
+#90
+0$
+#95
+1$
+#100
+b10 -
+b11 !
+b11 *
+b11 ,
+bz "
+bz +
+0$
+b110010 #
+b110010 )
+b101 .
+0'
+1&
+#105
+1$
+#110
+0$
+#115
+1$
+#120
+b1100 -
+b1100 "
+b1100 +
+0$
+b111100 #
+b111100 )
+b110 .
+1'
+0&
+#125
+1$
+#130
+0$
+#135
+1$
+#140
+b0 -
+b0 !
+b0 *
+b0 ,
+bz "
+bz +
+0$
+b1000110 #
+b1000110 )
+b111 .
+1(
+0'
+1&
+#145
+1$
+#150
+0$
+#155
+1$
+#160
+b101 !
+b101 *
+b101 ,
+b0 "
+b0 +
+0$
+b1010000 #
+b1010000 )
+b1000 .
+0(
+1'
+0&
+#165
+1$
+#170
+0$
+#175
+1$
+#180
+b1010 -
+bz "
+bz +
+0$
+b1011010 #
+b1011010 )
+b1001 .
+0'
+1&
+#185
+1$
+#190
+0$
+#195
+1$
+#200
+b100 -
+b110 !
+b110 *
+b110 ,
+b100 "
+b100 +
+0$
+b1100100 #
+b1100100 )
+b1010 .
+1'
+0&
+#205
+1$
+#210
+0$
+#215
+1$
+#220
+b1110 -
+bz "
+bz +
+0$
+b1101110 #
+b1101110 )
+b1011 .
+0'
+1&
+#225
+1$
+#230
+0$
+#235
+1$
+#240
+b1110 "
+b1110 +
+0$
+b1100 .
+1'
+0&

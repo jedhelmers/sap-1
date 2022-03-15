@@ -8,6 +8,9 @@ module cpu_tb;
   reg [3:0] pr_address;
   reg [7:0] pr_data;
 
+  reg instr_load;
+  reg address_send;
+
   reg debug;
   reg clk;
   reg rst = 0;
@@ -55,7 +58,9 @@ module cpu_tb;
     .rst(rst),
     .pr_mode(pr_mode),
     .pr_address(pr_address),
-    .pr_data(pr_data)
+    .pr_data(pr_data),
+    .instr_load(instr_load),
+    .address_send(address_send)
   );
 
   initial begin
@@ -80,8 +85,10 @@ module cpu_tb;
     $dumpvars(0, cpu_tb);
 
     for(integer i = 0; i < 12; i = i + 1) begin
-      opcode  <= _program[_cnt]; #period;
-      bus = i * 10; #120;
+      // opcode  <= _program[_cnt]; #period;
+      instr_load <= (i % 2 == 0);
+      address_send <= !(i % 2 == 0);
+      bus = i * 10; #20;
     end
 
     // opcode = 1;
