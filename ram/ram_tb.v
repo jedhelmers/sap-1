@@ -12,7 +12,7 @@ module ram_tb();
 
   reg [7:0] bus_strap;
 
-  assign bus = bus_strap;
+  assign bus = !re_en ? bus_strap : 8'bzzzzzzzz;
   ram r(
     .debug(debug),
     .prg_mode(prg_mode),
@@ -32,9 +32,18 @@ module ram_tb();
     $dumpfile("ram_tb.vcd");
     $dumpvars(0, ram_tb);
 
+    debug = 0;
+    $display("\nread from file");
+    for(integer i = 0; i < 16; i = i + 1) begin
+      prg_mode = 0;
+      re_en = 1;
+      address = i; #20;
+      $display("bus: %b", bus);
+    end
+    debug = 1;
+
     for(integer j = 0; j < 2; j++) begin
       prg_mode = !j;
-      $display("\nprg_mode: %b", prg_mode);
 
       for(integer i = 0; i < 12; i = i + 1) begin
         wr_en = i % 2 == 0;

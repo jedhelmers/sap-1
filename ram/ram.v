@@ -14,7 +14,8 @@ module ram(
 
   initial begin
     for(integer i = 0; i < 16; i++) begin
-      ram[i] = 8'b00000000;
+      // ram[i] = 8'b00000000;
+      $readmemb("ram.txt", ram);
     end
   end
 
