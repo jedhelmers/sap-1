@@ -2,6 +2,8 @@
 `include "control/control.v"
 `include "instruction_register/instruction_register.v"
 `include "mar/mar.v"
+`include "ram/ram.v"
+`include "pc/program_counter.v"
 module cpu(
     input clk,
     input rst,
@@ -9,10 +11,10 @@ module cpu(
     input [3:0] pr_address,
     input [7:0] pr_data,
     input instr_load,
+    input debug,
     input address_send
   );
-  wire debug = 1;
-  wire rst = 0;
+
   wire data_load;
   wire data_send;
   wire [7:0] bus;
@@ -44,6 +46,24 @@ module cpu(
 
   assign instr_in = instr_load; // TESTING: DELETE
   assign instr_out = address_send; // TESTING: DELETE
+
+  program_counter pc(
+    .debug(debug),
+    .out_en(pc_out),
+    .rst(rst),
+    .inc(pc_inc),
+    .cnt(bus)
+    );
+
+  ram r(
+    .debug(debug),
+    .prg_mode(pr_mode),
+    .prg_data(pr_data),
+    .address(mar_address),
+    .wr_en(ram_in),
+    .re_en(ram_out),
+    .bus(bus)
+    );
 
   instruction_register ir(
       .debug(debug),

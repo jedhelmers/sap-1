@@ -1,5 +1,5 @@
 $date
-	Sun Mar 13 22:37:25 2022
+	Mon Mar 14 22:49:09 2022
 $end
 $version
 	Icarus Verilog
@@ -8,73 +8,75 @@ $timescale
 	10ps
 $end
 $scope module cpu_tb $end
-$var wire 1 ! pc_out $end
-$var reg 1 " address_send $end
-$var reg 8 # bus [7:0] $end
-$var reg 1 $ clk $end
-$var reg 1 % debug $end
-$var reg 4 & flags [3:0] $end
-$var reg 1 ' instr_load $end
-$var reg 4 ( pr_address [3:0] $end
-$var reg 8 ) pr_data [7:0] $end
-$var reg 1 * pr_mode $end
-$var reg 1 + rst $end
-$var integer 32 , _cnt [31:0] $end
+$var wire 8 ! bus [7:0] $end
+$var wire 1 " instr_in $end
+$var reg 8 # _bus [7:0] $end
+$var reg 1 $ address_send $end
+$var reg 1 % clk $end
+$var reg 1 & debug $end
+$var reg 4 ' flags [3:0] $end
+$var reg 1 ( instr_load $end
+$var reg 4 ) opcode [3:0] $end
+$var reg 4 * pr_address [3:0] $end
+$var reg 8 + pr_data [7:0] $end
+$var reg 1 , pr_mode $end
+$var reg 1 - rst $end
+$var integer 32 . _cnt [31:0] $end
 $scope module cpu_ $end
-$var wire 1 " address_send $end
-$var wire 8 - bus_out [7:0] $end
-$var wire 1 $ clk $end
-$var wire 1 . debug $end
-$var wire 4 / flags [3:0] $end
-$var wire 1 0 instr_in $end
-$var wire 1 ' instr_load $end
-$var wire 1 1 instr_out $end
-$var wire 4 2 pr_address [3:0] $end
-$var wire 8 3 pr_data [7:0] $end
-$var wire 1 * pr_mode $end
-$var wire 1 4 rst $end
-$var wire 8 5 unbuffered_out [7:0] $end
-$var wire 4 6 step_out [3:0] $end
-$var wire 1 7 reg_out_in $end
-$var wire 4 8 reg_flags_in [3:0] $end
-$var wire 1 9 reg_b_out $end
-$var wire 1 : reg_b_in $end
-$var wire 1 ; reg_a_out $end
-$var wire 1 < reg_a_in $end
-$var wire 1 = ram_out $end
-$var wire 1 > ram_in $end
-$var wire 1 ? pc_out $end
-$var wire 1 @ pc_jmp $end
-$var wire 1 A pc_inc $end
-$var wire 4 B opcode [3:0] $end
-$var wire 1 C mar_in $end
-$var wire 4 D mar_address [3:0] $end
-$var wire 1 E halt $end
-$var wire 8 F bus [7:0] $end
+$var wire 1 $ address_send $end
+$var wire 8 / bus [7:0] $end
+$var wire 8 0 bus_out [7:0] $end
+$var wire 1 % clk $end
+$var wire 1 & debug $end
+$var wire 4 1 flags [3:0] $end
+$var wire 1 2 instr_in $end
+$var wire 1 ( instr_load $end
+$var wire 1 3 instr_out $end
+$var wire 4 4 pr_address [3:0] $end
+$var wire 8 5 pr_data [7:0] $end
+$var wire 1 , pr_mode $end
+$var wire 1 - rst $end
+$var wire 8 6 unbuffered_out [7:0] $end
+$var wire 4 7 step_out [3:0] $end
+$var wire 1 8 reg_out_in $end
+$var wire 4 9 reg_flags_in [3:0] $end
+$var wire 1 : reg_b_out $end
+$var wire 1 ; reg_b_in $end
+$var wire 1 < reg_a_out $end
+$var wire 1 = reg_a_in $end
+$var wire 1 > ram_out $end
+$var wire 1 ? ram_in $end
+$var wire 1 @ pc_out $end
+$var wire 1 A pc_jmp $end
+$var wire 1 B pc_inc $end
+$var wire 4 C opcode [3:0] $end
+$var wire 1 D mar_in $end
+$var wire 4 E mar_address [3:0] $end
+$var wire 1 F halt $end
 $var wire 1 G alu_sub $end
 $var wire 1 H alu_out $end
 $scope module c $end
-$var wire 1 $ clk $end
-$var wire 1 . debug $end
+$var wire 1 % clk $end
+$var wire 1 & debug $end
 $var wire 4 I flags [3:0] $end
-$var wire 1 0 instr_in $end
-$var wire 1 1 instr_out $end
-$var wire 1 4 rst $end
+$var wire 1 2 instr_in $end
+$var wire 1 3 instr_out $end
+$var wire 1 - rst $end
 $var wire 4 J step_out [3:0] $end
-$var wire 1 7 reg_out_in $end
+$var wire 1 8 reg_out_in $end
 $var wire 4 K reg_flags_in [3:0] $end
-$var wire 1 9 reg_b_out $end
-$var wire 1 : reg_b_in $end
-$var wire 1 ; reg_a_out $end
-$var wire 1 < reg_a_in $end
-$var wire 1 = ram_out $end
-$var wire 1 > ram_in $end
-$var wire 1 ? pc_out $end
-$var wire 1 @ pc_jmp $end
-$var wire 1 A pc_inc $end
+$var wire 1 : reg_b_out $end
+$var wire 1 ; reg_b_in $end
+$var wire 1 < reg_a_out $end
+$var wire 1 = reg_a_in $end
+$var wire 1 > ram_out $end
+$var wire 1 ? ram_in $end
+$var wire 1 @ pc_out $end
+$var wire 1 A pc_jmp $end
+$var wire 1 B pc_inc $end
 $var wire 4 L opcode [3:0] $end
-$var wire 1 C mar_in $end
-$var wire 1 E halt $end
+$var wire 1 D mar_in $end
+$var wire 1 F halt $end
 $var wire 1 G alu_sub $end
 $var wire 1 H alu_out $end
 $var reg 18 M control_bits [17:0] $end
@@ -98,11 +100,11 @@ $var integer 32 ^ ZERO [31:0] $end
 $upscope $end
 $scope module ir $end
 $var wire 8 _ bus_in [7:0] $end
-$var wire 1 . debug $end
-$var wire 1 0 instr_load_in $end
-$var wire 1 1 instr_send_in $end
+$var wire 1 & debug $end
+$var wire 1 2 instr_load_in $end
+$var wire 1 3 instr_send_in $end
 $var wire 4 ` opcode [3:0] $end
-$var wire 1 4 rst $end
+$var wire 1 - rst $end
 $var wire 4 a address_out [3:0] $end
 $var reg 4 b high [3:0] $end
 $var reg 4 c low [3:0] $end
@@ -110,61 +112,89 @@ $upscope $end
 $scope module mar_ $end
 $var wire 4 d address_in [3:0] $end
 $var wire 4 e address_out [3:0] $end
-$var wire 1 . debug $end
-$var wire 1 C enable_in $end
-$var wire 1 4 rst $end
+$var wire 1 & debug $end
+$var wire 1 D enable_in $end
+$var wire 1 - rst $end
 $var reg 4 f _address [3:0] $end
 $upscope $end
+$scope module pc $end
+$var wire 8 g cnt [7:0] $end
+$var wire 1 & debug $end
+$var wire 1 B inc $end
+$var wire 1 @ out_en $end
+$var wire 1 - rst $end
+$var reg 4 h _cnt [3:0] $end
+$var reg 8 i _cnt_buffer [7:0] $end
+$upscope $end
+$scope module r $end
+$var wire 4 j address [3:0] $end
+$var wire 8 k bus [7:0] $end
+$var wire 1 & debug $end
+$var wire 8 l prg_data [7:0] $end
+$var wire 1 , prg_mode $end
+$var wire 1 > re_en $end
+$var wire 1 ? wr_en $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 m i [31:0] $end
+$upscope $end
+$upscope $end
 $scope module reg_a $end
-$var wire 8 g bus [7:0] $end
-$var wire 8 h bus_out [7:0] $end
-$var wire 1 < data_load $end
-$var wire 1 ; data_send $end
-$var wire 1 . debug $end
-$var wire 1 4 rst $end
-$var wire 8 i unbuffered_out [7:0] $end
-$var reg 8 j data [7:0] $end
+$var wire 8 n bus [7:0] $end
+$var wire 8 o bus_out [7:0] $end
+$var wire 1 = data_load $end
+$var wire 1 < data_send $end
+$var wire 1 & debug $end
+$var wire 1 - rst $end
+$var wire 8 p unbuffered_out [7:0] $end
+$var reg 8 q data [7:0] $end
 $upscope $end
 $scope module reg_b $end
-$var wire 8 k bus [7:0] $end
-$var wire 8 l bus_out [7:0] $end
-$var wire 1 : data_load $end
-$var wire 1 9 data_send $end
-$var wire 1 . debug $end
-$var wire 1 4 rst $end
-$var wire 8 m unbuffered_out [7:0] $end
-$var reg 8 n data [7:0] $end
+$var wire 8 r bus [7:0] $end
+$var wire 8 s bus_out [7:0] $end
+$var wire 1 ; data_load $end
+$var wire 1 : data_send $end
+$var wire 1 & debug $end
+$var wire 1 - rst $end
+$var wire 8 t unbuffered_out [7:0] $end
+$var reg 8 u data [7:0] $end
 $upscope $end
 $scope module reg_out $end
-$var wire 8 o bus [7:0] $end
-$var wire 8 p bus_out [7:0] $end
-$var wire 1 7 data_load $end
-$var wire 1 9 data_send $end
-$var wire 1 . debug $end
-$var wire 1 4 rst $end
-$var wire 8 q unbuffered_out [7:0] $end
-$var reg 8 r data [7:0] $end
+$var wire 8 v bus [7:0] $end
+$var wire 8 w bus_out [7:0] $end
+$var wire 1 8 data_load $end
+$var wire 1 : data_send $end
+$var wire 1 & debug $end
+$var wire 1 - rst $end
+$var wire 8 x unbuffered_out [7:0] $end
+$var reg 8 y data [7:0] $end
 $upscope $end
 $upscope $end
-$scope begin $ivl_for_loop0 $end
-$var integer 32 s i [31:0] $end
+$scope begin $ivl_for_loop1 $end
+$var integer 32 z i [31:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-b0 s
-bx r
+b0 z
+bx y
+bx x
+bz w
+bz v
+bx u
+bx t
+bz s
+bz r
 bx q
-bz p
+bx p
 bz o
-bx n
-bx m
-bz l
+bz n
+b10000 m
+bx l
 bz k
-bx j
-bx i
-bz h
+b0 j
+bz i
+b0 h
 bz g
 b0 f
 b0 e
@@ -198,11 +228,11 @@ b0 J
 bz I
 0H
 0G
-bz F
-0E
-b0 D
-0C
-bz B
+0F
+b0 E
+0D
+bz C
+0B
 0A
 0@
 0?
@@ -211,354 +241,533 @@ bz B
 0<
 0;
 0:
-09
-b0 8
-07
-b0 6
+b0 9
+08
+b0 7
+bx 6
 bx 5
-04
-bx 3
-bx 2
-01
-x0
+bx 4
+03
+x2
+bz 1
+bz 0
 bz /
-1.
-bz -
-b0 ,
-0+
-x*
-bx )
-bx (
-1'
-b11 &
-1%
+b0 .
+0-
+x,
+bx +
+bx *
+b0 )
+1(
+b11 '
+1&
+0%
 0$
 b0 #
-0"
-z!
+z"
+bx !
 $end
 #200
-bz D
-bz e
-bz f
-1C
-1?
-b1 6
+b0 c
+b0 C
+b0 L
+b0 `
+b0 b
+b0 d
+b0 E
+b0 e
+b0 f
+b0 j
+b0 /
+b0 _
+b0 g
+b0 k
+b0 n
+b0 r
+b0 v
+b0 i
+1D
+1@
+b1 7
 b1 J
 b1 N
 b10000100 M
-1$
+1%
 #400
-0$
+0%
 #600
-10
-0C
-1=
-1A
-0?
-b10 6
+b1 h
+b0 /
+b0 _
+b0 g
+b0 k
+b0 n
+b0 r
+b0 v
+bz i
+12
+0D
+1>
+1B
+0@
+b10 7
 b10 J
 b10 N
 b1000101000 M
-1$
+1%
 #800
-0$
+0%
 #1000
-1$
+bz c
+bz C
+bz L
+bz `
+bz b
+bz d
+bz /
+bz _
+bz g
+bz k
+bz n
+bz r
+bz v
+x2
+0>
+0B
+b0 7
+b0 J
+b0 N
+b0 M
+1%
 #1200
-0$
+0%
 #1400
-1$
+b1 c
+b0 C
+b0 L
+b0 `
+b0 b
+b1 d
+b1 E
+b1 e
+b1 f
+b1 j
+b1 /
+b1 _
+b1 g
+b1 k
+b1 n
+b1 r
+b1 v
+b1 i
+1D
+1@
+b1 7
+b1 J
+b1 N
+b10000100 M
+1%
 #1600
-0$
+0%
 #1800
-1$
+b10 h
+b1 /
+b1 _
+b1 g
+b1 k
+b1 n
+b1 r
+b1 v
+bz i
+12
+0D
+1>
+1B
+0@
+b10 7
+b10 J
+b10 N
+b1000101000 M
+1%
 #2000
-x1
-1"
-x0
-0'
-0$
+bx c
+bx d
+b0xxxx /
+b0xxxx _
+b0xxxx g
+b0xxxx k
+b0xxxx n
+b0xxxx r
+b0xxxx v
+bx a
+x3
+1$
+x2
+0(
+0%
 b1010 #
-b1 s
+b1 )
+b1 z
 #2200
-1$
+bz C
+bz L
+bz `
+bz b
+bzxxxx /
+bzxxxx _
+bzxxxx g
+bzxxxx k
+bzxxxx n
+bzxxxx r
+bzxxxx v
+02
+0>
+0B
+b0 7
+b0 J
+b0 N
+b0 M
+1%
 #2400
-0$
+0%
 #2600
-1$
+b0 C
+b0 L
+b0 `
+b0 b
+bx E
+bx e
+bx f
+bx j
+b0xxxx /
+b0xxxx _
+b0xxxx g
+b0xxxx k
+b0xxxx n
+b0xxxx r
+b0xxxx v
+b10 i
+1D
+1@
+b1 7
+b1 J
+b1 N
+b10000100 M
+1%
 #2800
-0$
+0%
 #3000
-1$
+bx C
+bx L
+bx `
+bx b
+b11 h
+bx /
+bx _
+bx g
+bx k
+bx n
+bx r
+bx v
+bz i
+x2
+0D
+1>
+1B
+0@
+b10 7
+b10 J
+b10 N
+b1000101000 M
+1%
 #3200
-0$
+0%
 #3400
-1$
+1%
 #3600
-0$
+0%
 #3800
-1$
+1%
 #4000
-01
-0"
-10
-1'
+bz a
+03
 0$
+12
+1(
+0%
 b10100 #
-b10 s
+b10 )
+b10 z
 #4200
-1$
+1%
 #4400
-0$
+0%
 #4600
-1$
+1%
 #4800
-0$
+0%
 #5000
-1$
+1%
 #5200
-0$
+0%
 #5400
-1$
+1%
 #5600
-0$
+0%
 #5800
-1$
+1%
 #6000
-x1
-1"
-x0
-0'
-0$
+bx a
+x3
+1$
+x2
+0(
+0%
 b11110 #
-b11 s
+b11 )
+b11 z
 #6200
-1$
+1%
 #6400
-0$
+0%
 #6600
-1$
+1%
 #6800
-0$
+0%
 #7000
-1$
+1%
 #7200
-0$
+0%
 #7400
-1$
+1%
 #7600
-0$
+0%
 #7800
-1$
+1%
 #8000
-01
-0"
-10
-1'
+bz a
+03
 0$
+12
+1(
+0%
 b101000 #
-b100 s
+b100 )
+b100 z
 #8200
-1$
+1%
 #8400
-0$
+0%
 #8600
-1$
+1%
 #8800
-0$
+0%
 #9000
-1$
+1%
 #9200
-0$
+0%
 #9400
-1$
+1%
 #9600
-0$
+0%
 #9800
-1$
+1%
 #10000
-x1
-1"
-x0
-0'
-0$
+bx a
+x3
+1$
+x2
+0(
+0%
 b110010 #
-b101 s
+b101 )
+b101 z
 #10200
-1$
+1%
 #10400
-0$
+0%
 #10600
-1$
+1%
 #10800
-0$
+0%
 #11000
-1$
+1%
 #11200
-0$
+0%
 #11400
-1$
+1%
 #11600
-0$
+0%
 #11800
-1$
+1%
 #12000
-01
-0"
-10
-1'
+bz a
+03
 0$
+12
+1(
+0%
 b111100 #
-b110 s
+b110 )
+b110 z
 #12200
-1$
+1%
 #12400
-0$
+0%
 #12600
-1$
+1%
 #12800
-0$
+0%
 #13000
-1$
+1%
 #13200
-0$
+0%
 #13400
-1$
+1%
 #13600
-0$
+0%
 #13800
-1$
+1%
 #14000
-x1
-1"
-x0
-0'
-0$
+bx a
+x3
+1$
+x2
+0(
+0%
 b1000110 #
-b111 s
+b111 )
+b111 z
 #14200
-1$
+1%
 #14400
-0$
+0%
 #14600
-1$
+1%
 #14800
-0$
+0%
 #15000
-1$
+1%
 #15200
-0$
+0%
 #15400
-1$
+1%
 #15600
-0$
+0%
 #15800
-1$
+1%
 #16000
-01
-0"
-10
-1'
+bz a
+03
 0$
+12
+1(
+0%
 b1010000 #
-b1000 s
+b1000 )
+b1000 z
 #16200
-1$
+1%
 #16400
-0$
+0%
 #16600
-1$
+1%
 #16800
-0$
+0%
 #17000
-1$
+1%
 #17200
-0$
+0%
 #17400
-1$
+1%
 #17600
-0$
+0%
 #17800
-1$
+1%
 #18000
-x1
-1"
-x0
-0'
-0$
+bx a
+x3
+1$
+x2
+0(
+0%
 b1011010 #
-b1001 s
+b1001 )
+b1001 z
 #18200
-1$
+1%
 #18400
-0$
+0%
 #18600
-1$
+1%
 #18800
-0$
+0%
 #19000
-1$
+1%
 #19200
-0$
+0%
 #19400
-1$
+1%
 #19600
-0$
+0%
 #19800
-1$
+1%
 #20000
-01
-0"
-10
-1'
+bz a
+03
 0$
+12
+1(
+0%
 b1100100 #
-b1010 s
+b1010 )
+b1010 z
 #20200
-1$
+1%
 #20400
-0$
+0%
 #20600
-1$
+1%
 #20800
-0$
+0%
 #21000
-1$
+1%
 #21200
-0$
+0%
 #21400
-1$
+1%
 #21600
-0$
+0%
 #21800
-1$
+1%
 #22000
-x1
-1"
-x0
-0'
-0$
+bx a
+x3
+1$
+x2
+0(
+0%
 b1101110 #
-b1011 s
+b1011 )
+b1011 z
 #22200
-1$
+1%
 #22400
-0$
+0%
 #22600
-1$
+1%
 #22800
-0$
+0%
 #23000
-1$
+1%
 #23200
-0$
+0%
 #23400
-1$
+1%
 #23600
-0$
+0%
 #23800
-1$
+1%
 #24000
-0$
-b1100 s
+0%
+b1100 z

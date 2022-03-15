@@ -1,5 +1,4 @@
 module ram(
-  input clk,
   input debug,
   input prg_mode,
   input [7:0] prg_data,
@@ -15,11 +14,11 @@ module ram(
   initial begin
     for(integer i = 0; i < 16; i++) begin
       // ram[i] = 8'b00000000;
-      $readmemb("ram.txt", ram);
+      $readmemb("ram/ram.txt", ram);
     end
   end
 
-  always @(posedge clk or posedge wr_en) begin
+  always @(posedge wr_en) begin
     if(prg_mode) begin
       if(debug) $display("Program RAM address: %b prg_data: %b", address, prg_data);
       ram[address] <= prg_data;
@@ -30,7 +29,7 @@ module ram(
     end
   end
 
-  always @(posedge clk or posedge re_en) begin
+  always @(posedge re_en) begin
     if(debug) $display("Read\tRAM address: %b  ram[address]: %b", address, ram[address]);
   end
 

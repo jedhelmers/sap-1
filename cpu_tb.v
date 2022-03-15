@@ -2,7 +2,9 @@
 `include "cpu.v"
 module cpu_tb;
   localparam period = 20;
-  reg [7:0] bus = 8'b00000000;
+  wire [7:0] bus = 8'b00000000;
+  reg [7:0] _bus;
+
 
   reg pr_mode;
   reg [3:0] pr_address;
@@ -11,7 +13,7 @@ module cpu_tb;
   reg instr_load;
   reg address_send;
 
-  reg debug;
+  reg debug = 1;
   reg clk;
   reg rst = 0;
   reg [3:0] opcode;
@@ -40,18 +42,7 @@ module cpu_tb;
   wire [3:0] _program [0:11];
   integer _cnt = 0;
 
-  assign _program[0] = 0;
-  assign _program[1] = 1;
-  assign _program[2] = 2;
-  assign _program[3] = 3;
-  assign _program[4] = 4;
-  assign _program[5] = 5;
-  assign _program[6] = 6;
-  assign _program[7] = 7;
-  assign _program[8] = 8;
-  assign _program[9] = 9;
-  assign _program[10] = 10;
-  assign _program[11] = 11;
+  assign bus = instr_in ? 8'bzzzzzzzz : _bus;
 
   cpu cpu_(
     .clk(clk),
@@ -60,7 +51,8 @@ module cpu_tb;
     .pr_address(pr_address),
     .pr_data(pr_data),
     .instr_load(instr_load),
-    .address_send(address_send)
+    .address_send(address_send),
+    .debug(debug)
   );
 
   initial begin
@@ -73,22 +65,15 @@ module cpu_tb;
     flags = 4'b0011;
   end
 
-  always @(posedge clk) begin
-    if(pc_out) begin
-      // $display("CNT:%d\tPC_OUT: %b \t OPCODE: %d", _cnt, pc_out, _program[_cnt]);
-      _cnt <= _cnt + 1;
-    end
-  end
-
   initial begin
     $dumpfile("cpu_tb.vcd");
     $dumpvars(0, cpu_tb);
 
     for(integer i = 0; i < 12; i = i + 1) begin
-      // opcode  <= _program[_cnt]; #period;
       instr_load <= (i % 2 == 0);
+      opcode = i;
       address_send <= !(i % 2 == 0);
-      bus = i * 10; #20;
+      _bus = i * 10; #20;
     end
 
     // opcode = 1;
